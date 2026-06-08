@@ -1,0 +1,35 @@
+/* REVEAL ON SCROLL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .6s ease,transform .6s ease}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.4s}
+.delay-5{transition-delay:.5s}
+
+/* GLOW PULSE */
+@keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(0,212,255,0.2)}50%{box-shadow:0 0 40px rgba(0,212,255,0.45)}}
+.glow-pulse{animation:glowPulse 3s ease-in-out infinite}
+
+/* SHIMMER */
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.shimmer{background:linear-gradient(90deg,transparent 0%,rgba(0,212,255,0.15) 50%,transparent 100%);background-size:200% auto;animation:shimmer 2.5s linear infinite}
+
+/* PARTICLE CANVAS (CSS fallback) */
+.particle-fallback-dot{position:absolute;border-radius:50%;background:var(--cyan);opacity:.4;animation:particleFloat linear infinite}
+@keyframes particleFloat{0%{transform:translateY(0) translateX(0);opacity:.4}50%{opacity:.15}100%{transform:translateY(-100vh) translateX(var(--dx));opacity:0}}
+
+/* HERO ENTRANCE */
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-content>*{animation:heroFadeUp .8s ease both}
+.hero-content>*:nth-child(1){animation-delay:.1s}
+.hero-content>*:nth-child(2){animation-delay:.2s}
+.hero-content>*:nth-child(3){animation-delay:.3s}
+.hero-content>*:nth-child(4){animation-delay:.4s}
+.hero-content>*:nth-child(5){animation-delay:.5s}
+.hero-content>*:nth-child(6){animation-delay:.6s}
+.hero-content>*:nth-child(7){animation-delay:.7s}

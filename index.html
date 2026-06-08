@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIXON — Agencia de Inteligencia Artificial, Datos y Analytics para microempresas y pymes del Pacífico colombiano.">
 <title>AIXON — Artificial Intelligence · Data · Analytics</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
@@ -15,9 +16,13 @@
 <!-- PROGRESS BAR -->
 <div id="progress-bar"></div>
 
+<!-- THREE.JS CANVAS -->
+<canvas id="three-canvas"></canvas>
+<div id="webgl-fallback"></div>
+
 <!-- NAV -->
 <nav id="main-nav">
-  <a class="nav-logo" href="#">
+  <a href="#hero" class="nav-logo">
     <img src="AIXON-removebg-preview.png" alt="AIXON">
   </a>
   <ul class="nav-links">
@@ -27,35 +32,36 @@
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta">Empezar</a></li>
   </ul>
+  <button class="nav-burger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-  <canvas id="three-canvas"></canvas>
-  <div class="hero-fallback"></div>
+<section class="hero" id="hero">
   <div class="hero-content">
-    <div class="hero-logo">
+    <div class="hero-logo-wrap">
       <img src="AIXON-removebg-preview.png" alt="AIXON">
     </div>
     <p class="hero-tagline">Artificial Intelligence &bull; Data &bull; Analytics</p>
     <div class="hero-badge"><span class="badge-dot"></span>Agencia de IA &mdash; Buenaventura, Colombia</div>
-    <h1>Tu negocio, potenciado<br>con <span class="grad">inteligencia artificial</span></h1>
-    <p class="hero-sub">Tecnología, marketing digital, analítica y capacitación diseñados para microempresas y pymes del Pacífico colombiano.</p>
+    <h1>Tu empresa digital<br>desde el <span class="grad">primer día</span></h1>
+    <p class="hero-sub">Tecnología, IA y datos diseñados para microempresas y pymes del Pacífico colombiano. Sin contratos largos. Sin letra pequeña. Con resultados visibles.</p>
     <div class="hero-btns">
       <a href="#servicios" class="btn-main">Ver servicios &rarr;</a>
       <a href="#proceso" class="btn-ghost">¿Cómo funciona?</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num count-up" data-target="5" data-suffix=" pilares">0</span>
-        <span class="stat-lbl">De servicio</span>
+        <span class="stat-num" data-target="5" data-suffix=" pilares">0 pilares</span>
+        <span class="stat-lbl">de servicios</span>
       </div>
       <div class="stat">
-        <span class="stat-num count-up" data-target="48" data-suffix="h">0</span>
+        <span class="stat-num" data-target="48" data-suffix="h">0h</span>
         <span class="stat-lbl">Primer entregable</span>
       </div>
       <div class="stat">
-        <span class="stat-num count-up" data-target="100" data-suffix="%">0</span>
+        <span class="stat-num" data-target="100" data-suffix="%">0%</span>
         <span class="stat-lbl">Enfoque local</span>
       </div>
     </div>
@@ -65,186 +71,191 @@
 <div class="divider"></div>
 
 <!-- SERVICIOS -->
-<div class="section" id="servicios">
-  <p class="s-label reveal">Servicios</p>
-  <h2 class="s-title reveal">5 pilares para transformar<br>tu negocio con IA</h2>
-  <p class="s-sub reveal">Sin contratos largos &middot; Sin letra peque&ntilde;a &middot; Con resultados visibles</p>
+<div class="section-full" id="servicios">
+  <div class="section">
+    <p class="s-label reveal">Nuestros Servicios</p>
+    <h2 class="s-title reveal">5 pilares para transformar<br>tu negocio con IA</h2>
+    <p class="s-sub reveal">Soluciones prácticas adaptadas a la realidad del empresario en el Pacífico.</p>
 
-  <div class="srv-list stagger">
+    <div class="srv-grid" style="margin-top:2.8rem">
 
-    <div class="srv-item">
-      <div class="srv-num">01</div>
-      <div class="srv-body">
-        <h3>Tecnolog&iacute;a e IA</h3>
-        <p class="srv-tagline">Tu empresa digital desde el primer d&iacute;a.</p>
-        <p>Dise&ntilde;amos y construimos todo lo que tu negocio necesita en tecnolog&iacute;a: p&aacute;gina web que genera confianza, app que gestiona citas e inventario, y asistentes de IA que trabajan 24/7.</p>
-        <ul class="srv-features">
-          <li>P&aacute;gina web profesional</li>
+      <!-- 01 -->
+      <div class="srv-card reveal delay-1">
+        <div class="srv-num">01</div>
+        <h3>Tecnología e IA</h3>
+        <p class="srv-tagline">Tu empresa digital desde el primer día.</p>
+        <p class="srv-desc">Diseñamos y construimos todo lo que tu negocio necesita en tecnología: página web que genera confianza, app que gestiona citas e inventario, y asistentes de IA que trabajan 24/7.</p>
+        <ul class="srv-items">
+          <li>Página web profesional</li>
           <li>App a la medida de tu empresa</li>
-          <li>Automatizaci&oacute;n de tareas repetitivas</li>
+          <li>Automatización de tareas repetitivas</li>
           <li>Asistente con IA para atender clientes</li>
         </ul>
       </div>
-    </div>
 
-    <div class="srv-item">
-      <div class="srv-num">02</div>
-      <div class="srv-body">
+      <!-- 02 -->
+      <div class="srv-card reveal delay-2">
+        <div class="srv-num">02</div>
         <h3>Marketing Digital</h3>
-        <p class="srv-tagline">Tu marca donde est&aacute;n tus clientes.</p>
-        <p>Gestionamos tu presencia digital de forma integral: contenido semanal para redes, reputaci&oacute;n online, estrategia de WhatsApp Business, campa&ntilde;as de pauta con IA y email marketing automatizado para convertir seguidores en clientes.</p>
-        <ul class="srv-features">
+        <p class="srv-tagline">Tu marca donde están tus clientes.</p>
+        <p class="srv-desc">Gestionamos tu presencia digital de forma integral: contenido semanal para redes, reputación online, estrategia de WhatsApp Business, campañas de pauta con IA y email marketing automatizado para convertir seguidores en clientes.</p>
+        <ul class="srv-items">
           <li>Contenido listo para Instagram y Facebook</li>
-          <li>Gesti&oacute;n de reputaci&oacute;n y posicionamiento en Google Maps</li>
-          <li>Estrategia de WhatsApp Business y campa&ntilde;as con IA</li>
+          <li>Gestión de reputación y posicionamiento en Google Maps</li>
+          <li>Estrategia de WhatsApp Business y campañas con IA</li>
           <li>Email marketing automatizado</li>
         </ul>
       </div>
-    </div>
 
-    <div class="srv-item">
-      <div class="srv-num">03</div>
-      <div class="srv-body">
+      <!-- 03 -->
+      <div class="srv-card reveal delay-3">
+        <div class="srv-num">03</div>
         <h3>Panel de Control</h3>
         <p class="srv-tagline">Ve todo tu negocio en una sola pantalla.</p>
-        <p>Un dashboard hecho para ti: ventas del d&iacute;a, rendimiento por empleado, inventario en tiempo real y alertas autom&aacute;ticas cuando algo necesita atenci&oacute;n.</p>
-        <ul class="srv-features">
+        <p class="srv-desc">Un dashboard hecho para ti: ventas del día, rendimiento por empleado, inventario en tiempo real y alertas automáticas cuando algo necesita atención.</p>
+        <ul class="srv-items">
           <li>Ventas y caja en tiempo real</li>
           <li>Rendimiento de cada empleado</li>
           <li>Alertas cuando el inventario baja</li>
-          <li>Reportes autom&aacute;ticos en tu correo</li>
+          <li>Reportes automáticos en tu correo</li>
         </ul>
       </div>
-    </div>
 
-    <div class="srv-item">
-      <div class="srv-num">04</div>
-      <div class="srv-body">
+      <!-- 04 -->
+      <div class="srv-card reveal delay-4">
+        <div class="srv-num">04</div>
         <h3>Inteligencia de Mercado</h3>
-        <p class="srv-tagline">Decide con datos, no con intuici&oacute;n.</p>
-        <p>Analizamos tu competencia, identificamos oportunidades sin explotar y te entregamos un informe ejecutivo interactivo para que tu pr&oacute;xima decisi&oacute;n de negocio sea la correcta.</p>
-        <ul class="srv-features">
+        <p class="srv-tagline">Decide con datos, no con intuición.</p>
+        <p class="srv-desc">Analizamos tu competencia, identificamos oportunidades sin explotar y te entregamos un informe ejecutivo interactivo para que tu próxima decisión de negocio sea la correcta.</p>
+        <ul class="srv-items">
           <li>Mapa completo de tu competencia</li>
-          <li>Oportunidades que nadie est&aacute; aprovechando</li>
-          <li>Proyecci&oacute;n de ingresos con escenarios</li>
+          <li>Oportunidades que nadie está aprovechando</li>
+          <li>Proyección de ingresos con escenarios</li>
           <li>Informe ejecutivo interactivo</li>
         </ul>
       </div>
-    </div>
 
-    <div class="srv-item">
-      <div class="srv-num">05</div>
-      <div class="srv-body">
-        <h3>Informes y Documentaci&oacute;n</h3>
-        <p class="srv-tagline">Tus documentos listos en minutos, no en d&iacute;as.</p>
-        <p>Automatizamos informes de ejecuci&oacute;n, actas de entrega, reportes de gesti&oacute;n y documentaci&oacute;n contractual con plantillas inteligentes potenciadas con IA. Ideal para contratistas del Estado, constructores, proveedores del puerto y consultores.</p>
-        <ul class="srv-features">
-          <li>Informes de ejecuci&oacute;n para contratos del Estado</li>
-          <li>Actas de entrega y liquidaci&oacute;n de obra</li>
-          <li>Reportes de gesti&oacute;n peri&oacute;dicos con datos reales</li>
+      <!-- 05 -->
+      <div class="srv-card reveal delay-5">
+        <div class="srv-num">05</div>
+        <h3>Informes y Documentación</h3>
+        <p class="srv-tagline">Tus documentos listos en minutos, no en días.</p>
+        <p class="srv-desc">Automatizamos informes de ejecución, actas de entrega, reportes de gestión y documentación contractual con plantillas inteligentes potenciadas con IA. Ideal para contratistas del Estado, constructores, proveedores del puerto y consultores.</p>
+        <ul class="srv-items">
+          <li>Informes de ejecución para contratos del Estado</li>
+          <li>Actas de entrega y liquidación de obra</li>
+          <li>Reportes de gestión periódicos con datos reales</li>
           <li>Plantillas inteligentes reutilizables por sector</li>
         </ul>
       </div>
-    </div>
 
-    <div class="srv-item">
-      <div class="srv-num special">&#10022;</div>
-      <div class="srv-body">
+      <!-- Capacitaciones -->
+      <div class="srv-card reveal delay-1">
+        <div class="srv-num" style="font-size:1.8rem">⬧</div>
         <h3>Capacitaciones</h3>
         <p class="srv-tagline">Servicio complementario</p>
-        <p>Formamos equipos empresariales e institucionales para que adopten la inteligencia artificial como herramienta de trabajo cotidiana. Talleres pr&aacute;cticos, casos reales, sin teor&iacute;a innecesaria.</p>
-        <ul class="srv-features">
+        <p class="srv-desc">Formamos equipos empresariales e institucionales para que adopten la inteligencia artificial como herramienta de trabajo cotidiana. Talleres prácticos, casos reales, sin teoría innecesaria.</p>
+        <ul class="srv-items">
           <li>Talleres de IA para equipos de trabajo</li>
-          <li>Capacitaci&oacute;n institucional (alcald&iacute;as, hospitales, universidades)</li>
-          <li>Uso de herramientas: Claude, ChatGPT, Copilot y m&aacute;s</li>
+          <li>Capacitación institucional (alcaldías, hospitales, universidades)</li>
+          <li>Uso de herramientas: Claude, ChatGPT, Copilot y más</li>
           <li>Modalidad presencial o virtual &middot; grupos desde 5 personas</li>
         </ul>
       </div>
+
     </div>
 
+    <p class="reveal" style="text-align:center;margin-top:2rem;color:var(--muted);font-size:.88rem;letter-spacing:.05em">
+      Sin contratos largos &middot; Sin letra pequeña &middot; Con resultados visibles
+    </p>
   </div>
-  <p class="srv-disclaimer reveal">Sin contratos largos &middot; Sin letra peque&ntilde;a &middot; Con resultados visibles</p>
 </div>
 
 <div class="divider"></div>
 
 <!-- PLANES -->
-<div class="section" id="planes">
-  <p class="s-label reveal">Planes de Suscripci&oacute;n</p>
-  <h2 class="s-title reveal">Elige tu punto de partida</h2>
-  <p class="s-sub reveal">Escala cuando tu negocio lo necesite. Sin permanencia forzada.</p>
+<div class="section-full" id="planes">
+  <div class="section">
+    <div class="plans-header reveal">
+      <p class="plans-num">0 5</p>
+      <h2>Planes de Suscripción para Clientes</h2>
+    </div>
 
-  <div class="plans-grid stagger">
-    <div class="plan">
-      <p class="plan-tier">B&Aacute;SICO</p>
-      <div class="plan-price">$200k &ndash; $400k <small>COP / mes</small></div>
-      <p class="plan-desc">1 pilar a elegir. Ideal para comenzar.</p>
-      <ul class="plan-list">
-        <li>1 pilar a elegir</li>
-        <li>Entregables mensuales</li>
-        <li>Soporte por WhatsApp</li>
-        <li>Revisi&oacute;n mensual</li>
-      </ul>
-      <button class="plan-btn">Comenzar &rarr;</button>
+    <div class="plans-grid">
+      <div class="plan reveal delay-1">
+        <p class="plan-tier">Básico</p>
+        <div class="plan-price">$200k – $400k <small>COP / mes</small></div>
+        <ul class="plan-list">
+          <li>1 pilar a elegir</li>
+          <li>Entregables mensuales</li>
+          <li>Soporte por WhatsApp</li>
+          <li>Revisión mensual</li>
+        </ul>
+        <button class="plan-btn">Comenzar &rarr;</button>
+      </div>
+
+      <div class="plan best reveal delay-2">
+        <div class="plan-badge">PROFESIONAL ★</div>
+        <p class="plan-tier" style="margin-top:.5rem">Profesional</p>
+        <div class="plan-price">$500k – $900k <small>COP / mes</small></div>
+        <ul class="plan-list">
+          <li>2–3 pilares</li>
+          <li>Entregables semanales</li>
+          <li>Soporte prioritario</li>
+          <li>Reunión quincenal</li>
+          <li>Dashboard básico</li>
+        </ul>
+        <button class="plan-btn">Comenzar &rarr;</button>
+      </div>
+
+      <div class="plan reveal delay-3">
+        <p class="plan-tier">Empresa</p>
+        <div class="plan-price">$1.2M – $2.5M <small>COP / mes</small></div>
+        <ul class="plan-list">
+          <li>5 pilares completos</li>
+          <li>Gestión dedicada</li>
+          <li>Soporte 24/5</li>
+          <li>Reunión semanal</li>
+          <li>Dashboard avanzado</li>
+          <li>Analítica mensual</li>
+        </ul>
+        <button class="plan-btn">Cotizar &rarr;</button>
+      </div>
     </div>
-    <div class="plan best">
-      <div class="plan-badge">MÁS POPULAR &#9733;</div>
-      <p class="plan-tier">PROFESIONAL</p>
-      <div class="plan-price">$500k &ndash; $900k <small>COP / mes</small></div>
-      <p class="plan-desc">2&ndash;3 pilares. Para pymes en crecimiento.</p>
-      <ul class="plan-list">
-        <li>2&ndash;3 pilares</li>
-        <li>Entregables semanales</li>
-        <li>Soporte prioritario</li>
-        <li>Reuni&oacute;n quincenal</li>
-        <li>Dashboard b&aacute;sico</li>
-      </ul>
-      <button class="plan-btn pulse-glow">Comenzar &rarr;</button>
-    </div>
-    <div class="plan">
-      <p class="plan-tier">EMPRESA</p>
-      <div class="plan-price">$1.2M &ndash; $2.5M <small>COP / mes</small></div>
-      <p class="plan-desc">5 pilares completos. Transformaci&oacute;n total.</p>
-      <ul class="plan-list">
-        <li>5 pilares completos</li>
-        <li>Gesti&oacute;n dedicada</li>
-        <li>Soporte 24/5</li>
-        <li>Reuni&oacute;n semanal</li>
-        <li>Dashboard avanzado</li>
-        <li>Anal&iacute;tica mensual</li>
-      </ul>
-      <button class="plan-btn">Cotizar &rarr;</button>
-    </div>
+
+    <p class="plans-footer reveal">¿No sabes cuál elegir? <a href="#contacto" style="color:var(--cyan)">Hablemos y te recomendamos el ideal &rarr;</a></p>
   </div>
 </div>
 
 <div class="divider"></div>
 
 <!-- PROCESO -->
-<div class="section" id="proceso">
-  <p class="s-label reveal">Proceso</p>
-  <h2 class="s-title reveal">De cero a resultados<br>en 4 pasos</h2>
-  <p class="s-sub reveal">Un proceso claro, sin tecnicismos, pensado para el empresario ocupado.</p>
-  <div class="proc-grid stagger">
-    <div class="proc-step">
-      <div class="proc-num">01</div>
-      <h3>Diagn&oacute;stico</h3>
-      <p>Entendemos tu negocio, procesos y dolores en una sesi&oacute;n de 60 minutos.</p>
-    </div>
-    <div class="proc-step">
-      <div class="proc-num">02</div>
-      <h3>Propuesta</h3>
-      <p>Plan de acci&oacute;n concreto con herramientas, tiempos y costos claros.</p>
-    </div>
-    <div class="proc-step">
-      <div class="proc-num">03</div>
-      <h3>Implementaci&oacute;n</h3>
-      <p>Ejecutamos. Primer entregable visible en menos de 48 horas.</p>
-    </div>
-    <div class="proc-step">
-      <div class="proc-num">04</div>
-      <h3>Acompa&ntilde;amiento</h3>
-      <p>Seguimiento continuo y capacitaci&oacute;n para que tu equipo sea aut&oacute;nomo.</p>
+<div class="section-full" id="proceso">
+  <div class="section">
+    <p class="s-label reveal">Proceso</p>
+    <h2 class="s-title reveal">De cero a resultados<br>en 4 pasos</h2>
+    <p class="s-sub reveal">Un proceso claro, sin tecnicismos, pensado para el empresario ocupado.</p>
+    <div class="proc-grid">
+      <div class="proc-step reveal delay-1">
+        <div class="proc-num">01</div>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos tu negocio, procesos y dolores en una sesión de 60 minutos.</p>
+      </div>
+      <div class="proc-step reveal delay-2">
+        <div class="proc-num">02</div>
+        <h3>Propuesta</h3>
+        <p>Plan de acción concreto con herramientas, tiempos y costos claros.</p>
+      </div>
+      <div class="proc-step reveal delay-3">
+        <div class="proc-num">03</div>
+        <h3>Implementación</h3>
+        <p>Ejecutamos. Primer entregable visible en menos de 48 horas.</p>
+      </div>
+      <div class="proc-step reveal delay-4">
+        <div class="proc-num">04</div>
+        <h3>Acompañamiento</h3>
+        <p>Seguimiento continuo y capacitación para que tu equipo sea autónomo.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -252,60 +263,62 @@
 <div class="divider"></div>
 
 <!-- FAQ -->
-<div class="section" id="faq">
-  <p class="s-label reveal">Preguntas frecuentes</p>
-  <h2 class="s-title reveal">Todo lo que necesitas saber</h2>
+<div class="section-full" id="faq">
+  <div class="section">
+    <p class="s-label reveal">FAQ</p>
+    <h2 class="s-title reveal">Preguntas frecuentes</h2>
 
-  <div class="faq-list reveal">
+    <div class="faq-list">
 
-    <div class="faq-item">
-      <button class="faq-q">
-        &iquest;Necesito conocimientos t&eacute;cnicos para trabajar con AIXON?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p>No. Nos encargamos de toda la parte t&eacute;cnica. T&uacute; solo nos dices qu&eacute; necesitas y c&oacute;mo funciona tu negocio. Nosotros traducimos eso en soluciones que puedes usar desde el primer d&iacute;a.</p></div>
+      <div class="faq-item reveal delay-1">
+        <div class="faq-q">
+          <span>¿Necesito conocimientos técnicos para contratar AIXON?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><p>No. Nos encargamos de toda la parte técnica. Tú solo necesitas saber qué problema quieres resolver y nosotros te guiamos paso a paso desde el diagnóstico hasta los resultados.</p></div>
+      </div>
+
+      <div class="faq-item reveal delay-2">
+        <div class="faq-q">
+          <span>¿Cuánto tiempo tarda en verse el primer resultado?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><p>En menos de 48 horas después de aprobar la propuesta tienes el primer entregable en tus manos. Dependiendo del servicio puede ser un dashboard funcionando, tu primera pieza de contenido publicada o tu asistente IA respondiendo clientes.</p></div>
+      </div>
+
+      <div class="faq-item reveal delay-3">
+        <div class="faq-q">
+          <span>¿Hay contratos o compromisos de permanencia?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><p>No existe contrato de permanencia. Trabajamos mes a mes y puedes pausar o cancelar cuando quieras. Creemos que te quedas porque los resultados lo justifican, no porque estés obligado.</p></div>
+      </div>
+
+      <div class="faq-item reveal delay-4">
+        <div class="faq-q">
+          <span>¿Pueden atender empresas fuera de Buenaventura?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><p>Sí. Trabajamos de forma 100% remota y atendemos a empresas en toda Colombia. Nuestra operación nació en Buenaventura pero nuestros servicios no tienen fronteras geográficas.</p></div>
+      </div>
+
+      <div class="faq-item reveal delay-5">
+        <div class="faq-q">
+          <span>¿Qué pasa si no quedo satisfecho con el servicio?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><p>Si en el primer mes no ves resultados concretos o no estás satisfecho con el trabajo, no te cobramos el siguiente mes. Nuestro compromiso es con resultados visibles, no con promesas.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          <span>¿Las capacitaciones son presenciales o virtuales?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><p>Las ofrecemos en ambas modalidades. Los talleres presenciales se realizan en Buenaventura y área metropolitana. Los virtuales los coordinamos para cualquier parte de Colombia, desde grupos de 5 personas en adelante.</p></div>
+      </div>
+
     </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        &iquest;Cu&aacute;nto tiempo tarda en verse un resultado?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p>El primer entregable llega en menos de 48 horas desde que iniciamos. Resultados concretos como aumento de consultas o ahorro de tiempo suelen notarse en las primeras 2&ndash;4 semanas.</p></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        &iquest;Puedo cambiar de plan o cancelar?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p>S&iacute;. Sin contratos de permanencia. Puedes escalar, bajar o pausar tu plan con 15 d&iacute;as de aviso. Nuestro compromiso es que te quedes porque los resultados lo valen, no porque est&aacute;s atrapado.</p></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        &iquest;Trabajan solo con empresas de Buenaventura?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p>Tenemos foco en Buenaventura y el Pac&iacute;fico colombiano, pero trabajamos con cualquier empresa del pa&iacute;s de forma virtual. Los servicios de capacitaci&oacute;n tambi&eacute;n los ofrecemos en modalidad presencial en la regi&oacute;n.</p></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        &iquest;Qu&eacute; pasa con mis datos y los de mis clientes?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p>Tus datos son tuyos. Trabajamos bajo acuerdos de confidencialidad y no compartimos informaci&oacute;n con terceros. Todas las herramientas que implementamos cumplen est&aacute;ndares de seguridad de la industria.</p></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        &iquest;Los servicios de documentaci&oacute;n aplican para contratos con el Estado?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p>S&iacute;, especialmente. Automatizamos informes de ejecuci&oacute;n, actas de entrega y reportes de gesti&oacute;n para contratistas del Estado, constructores y proveedores del puerto que hoy redactan todo a mano en Word.</p></div>
-    </div>
-
   </div>
 </div>
 
@@ -314,9 +327,12 @@
 <!-- CTA FINAL -->
 <div class="cta-wrap" id="contacto">
   <div class="cta-glow"></div>
-  <h2 class="reveal">&iquest;Listo para llevar tu negocio<br>al siguiente nivel?</h2>
-  <p class="reveal">Agenda una sesi&oacute;n gratuita de diagn&oacute;stico. Sin compromisos.</p>
-  <a href="mailto:contacto@aixon.co" class="btn-main pulse-glow">Agendar sesi&oacute;n gratuita &rarr;</a>
+  <p class="s-label reveal" style="text-align:center">Empieza hoy</p>
+  <h2 class="reveal">¿Listo para llevar tu negocio<br>al siguiente nivel?</h2>
+  <p class="reveal">Agenda una sesión gratuita de diagnóstico. Sin compromisos.</p>
+  <a href="mailto:contacto@aixon.co?subject=Sesión%20gratuita%20de%20diagnóstico%20-%20AIXON" class="btn-main reveal glow-pulse" style="font-size:1rem;padding:1rem 2.5rem">
+    Agendar sesión gratuita &rarr;
+  </a>
 </div>
 
 <!-- FOOTER -->
@@ -335,8 +351,9 @@
 
 <!-- THREE.JS r128 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>window.dispatchEvent(new Event('three-ready'));</script>
 <script src="js/scene.js"></script>
 <script src="js/interactions.js"></script>
+<script src="js/forms.js"></script>
+
 </body>
 </html>

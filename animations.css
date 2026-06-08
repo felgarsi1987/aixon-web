@@ -1,0 +1,36 @@
+/* REVEAL ON SCROLL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* STAGGER */
+.stagger > * { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.05s; }
+.stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.15s; }
+.stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.25s; }
+.stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:.35s; }
+.stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:.45s; }
+.stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:.55s; }
+
+/* PULSE GLOW */
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(0,212,255,.4); }
+  50% { box-shadow: 0 0 0 12px rgba(0,212,255,.0); }
+}
+.pulse-glow { animation: pulseGlow 2.5s infinite; }
+
+/* SHIMMER LINE */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, var(--white) 30%, var(--cyan) 50%, var(--white) 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* COUNTER ANIMATION */
+.count-up { display: inline-block; }

@@ -4,309 +4,214 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AIXON — Artificial Intelligence · Data · Analytics</title>
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --deep: #020B1E;
-  --navy: #050F2C;
-  --electric: #1B6EF3;
-  --cyan: #00D4FF;
-  --cyan2: #00AACC;
-  --white: #EEF4FF;
-  --muted: rgba(200,220,255,0.52);
-  --card: rgba(255,255,255,0.03);
-  --card-border: rgba(0,212,255,0.14);
-  --font-h: 'Exo 2', sans-serif;
-  --font-b: 'DM Sans', sans-serif;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--deep); color: var(--white); font-family: var(--font-b); overflow-x: hidden; line-height: 1.65; }
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 6%;
-  background: rgba(2,11,30,0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(0,212,255,0.1);
-}
-.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-logo img { width: 40px; height: 40px; object-fit: contain; }
-.nav-brand {
-  font-family: var(--font-h); font-weight: 800; font-size: 1.35rem;
-  letter-spacing: 0.2em; color: var(--white);
-}
-.nav-brand span { background: linear-gradient(90deg, var(--electric), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; transition: color .2s; }
-.nav-links a:hover { color: var(--cyan); }
-.nav-cta {
-  border: 1px solid var(--cyan) !important;
-  color: var(--cyan) !important;
-  padding: .45rem 1.2rem; border-radius: 4px;
-  transition: all .2s !important;
-}
-.nav-cta:hover { background: var(--cyan) !important; color: var(--deep) !important; }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center;
-  padding: 9rem 6% 5rem;
-  position: relative; overflow: hidden;
-}
-canvas#particles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.hero-glow {
-  position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-  width: 800px; height: 700px;
-  background: radial-gradient(ellipse at center, rgba(0,212,255,0.07) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
-.hero-logo-wrap { margin-bottom: 1.8rem; animation: floatY 5s ease-in-out infinite; }
-.hero-logo-wrap img { width: 130px; height: 130px; object-fit: contain; filter: drop-shadow(0 0 24px rgba(0,212,255,0.3)); }
-@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-.hero-tagline {
-  font-family: var(--font-h); font-size: 0.72rem; letter-spacing: 0.28em;
-  text-transform: uppercase; color: var(--cyan2); opacity: 0.85; margin-bottom: 0.9rem;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid rgba(0,212,255,0.28); border-radius: 100px;
-  padding: .35rem 1.1rem; font-size: .76rem; color: var(--cyan);
-  letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.75rem;
-  background: rgba(0,212,255,0.05);
-}
-.badge-dot { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: blink 2s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
-.hero h1 {
-  font-family: var(--font-h); font-weight: 800;
-  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
-  line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 1.2rem;
-}
-.hero h1 .grad {
-  background: linear-gradient(100deg, var(--electric) 0%, var(--cyan) 55%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.hero-sub {
-  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
-  color: var(--muted); max-width: 540px; font-weight: 300;
-  margin: 0 auto 2.5rem; line-height: 1.75;
-}
-.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
-.btn-main {
-  background: linear-gradient(90deg, var(--electric), var(--cyan2));
-  color: #fff; border: none; padding: .9rem 2.2rem; border-radius: 5px;
-  font-family: var(--font-b); font-size: .92rem; font-weight: 500;
-  cursor: pointer; letter-spacing: .05em; transition: all .25s; text-decoration: none; display: inline-block;
-}
-.btn-main:hover { opacity: .88; transform: translateY(-2px); }
-.btn-ghost {
-  background: transparent; color: var(--white);
-  border: 1px solid rgba(200,220,255,0.22);
-  padding: .9rem 2.2rem; border-radius: 5px;
-  font-family: var(--font-b); font-size: .92rem; cursor: pointer;
-  letter-spacing: .05em; transition: all .25s; text-decoration: none; display: inline-block;
-}
-.btn-ghost:hover { border-color: rgba(200,220,255,.55); transform: translateY(-2px); }
-.hero-stats { display: flex; gap: 0; }
-.stat { text-align: center; padding: 0 2.5rem; }
-.stat:not(:last-child) { border-right: 1px solid rgba(0,212,255,0.18); }
-.stat-num {
-  display: block; font-family: var(--font-h); font-size: 2.1rem; font-weight: 800;
-  background: linear-gradient(90deg, var(--white), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.stat-lbl { font-size: .72rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
-
-/* DIVIDER */
-.divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.18), transparent); }
-
-/* SECTION BASE */
-.section { padding: 5.5rem 6%; max-width: 1140px; margin: 0 auto; }
-.s-label { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--cyan); margin-bottom: .6rem; font-weight: 500; }
-.s-title { font-family: var(--font-h); font-size: clamp(1.8rem, 3.2vw, 2.8rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; margin-bottom: .8rem; }
-.s-sub { color: var(--muted); font-weight: 300; max-width: 500px; font-size: 1rem; }
-
-/* SERVICES */
-.srv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.3rem; margin-top: 2.8rem; }
-.srv-card {
-  background: var(--card); border: 1px solid var(--card-border);
-  border-radius: 12px; padding: 1.8rem;
-  transition: all .3s; cursor: default; position: relative; overflow: hidden;
-}
-.srv-card::after {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-  transform: scaleX(0); transform-origin: center; transition: transform .4s;
-}
-.srv-card:hover::after { transform: scaleX(1); }
-.srv-card:hover { background: rgba(0,212,255,0.05); border-color: rgba(0,212,255,0.32); transform: translateY(-4px); }
-.srv-icon {
-  width: 48px; height: 48px;
-  background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.18);
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; margin-bottom: 1.2rem;
-}
-.srv-card h3 { font-family: var(--font-h); font-size: 1.02rem; font-weight: 700; margin-bottom: .5rem; letter-spacing: .02em; }
-.srv-card p { font-size: .88rem; color: var(--muted); font-weight: 300; line-height: 1.68; }
-
-/* PLANS */
-.plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.3rem; margin-top: 2.8rem; }
-.plan {
-  background: var(--card); border: 1px solid var(--card-border);
-  border-radius: 12px; padding: 2rem; position: relative; transition: all .3s;
-}
-.plan.best { border-color: var(--cyan); background: rgba(0,212,255,0.04); }
-.plan-badge {
-  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(90deg, var(--electric), var(--cyan2));
-  color: #fff; font-size: .68rem; font-weight: 700;
-  padding: 3px 16px; border-radius: 100px; letter-spacing: .1em; white-space: nowrap;
-}
-.plan-tier { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
-.plan-price { font-family: var(--font-h); font-size: 2.1rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .25rem; }
-.plan-price small { font-size: .9rem; font-weight: 300; color: var(--muted); }
-.plan-desc { font-size: .84rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 300; }
-.plan-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; margin-bottom: 1.8rem; }
-.plan-list li { font-size: .86rem; color: var(--muted); display: flex; align-items: flex-start; gap: 9px; }
-.plan-list li::before { content: ''; width: 6px; height: 6px; min-width: 6px; background: var(--cyan); border-radius: 50%; margin-top: 6px; }
-.plan-btn {
-  width: 100%; padding: .72rem; border-radius: 6px;
-  font-family: var(--font-b); font-size: .88rem; font-weight: 500;
-  cursor: pointer; transition: all .2s; letter-spacing: .05em;
-  border: 1px solid rgba(200,220,255,0.2); background: transparent; color: var(--white);
-}
-.plan.best .plan-btn { background: linear-gradient(90deg, var(--electric), var(--cyan2)); border: none; color: #fff; }
-.plan-btn:hover { opacity: .82; transform: translateY(-1px); }
-
-/* PROCESS */
-.proc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2.8rem; }
-.proc-step { padding: 1.6rem; border-left: 1px solid var(--card-border); transition: border-color .3s; }
-.proc-step:hover { border-color: var(--cyan); }
-.proc-num { font-family: var(--font-h); font-size: 3rem; font-weight: 800; color: rgba(0,212,255,0.1); line-height: 1; margin-bottom: .65rem; }
-.proc-step h3 { font-family: var(--font-h); font-size: .96rem; font-weight: 700; margin-bottom: .4rem; letter-spacing: .02em; }
-.proc-step p { font-size: .86rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
-
-/* CTA */
-.cta-wrap { text-align: center; padding: 5.5rem 6%; position: relative; overflow: hidden; }
-.cta-glow {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 350px;
-  background: radial-gradient(ellipse, rgba(0,212,255,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-.cta-wrap h2 { font-family: var(--font-h); font-size: clamp(1.9rem, 3.8vw, 3.2rem); font-weight: 800; letter-spacing: -.03em; margin-bottom: .9rem; line-height: 1.1; }
-.cta-wrap p { color: var(--muted); font-weight: 300; margin-bottom: 2.4rem; font-size: 1.02rem; }
-
-/* FOOTER */
-footer {
-  border-top: 1px solid rgba(0,212,255,0.1);
-  padding: 2rem 6%; display: flex; align-items: center;
-  justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-}
-.foot-logo { display: flex; align-items: center; gap: 9px; }
-.foot-logo img { width: 28px; height: 28px; object-fit: contain; }
-.foot-brand { font-family: var(--font-h); font-weight: 800; font-size: .98rem; letter-spacing: .2em; color: var(--white); }
-.foot-brand span { background: linear-gradient(90deg, var(--electric), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-footer p { font-size: .76rem; color: var(--muted); }
-.foot-links { display: flex; gap: 1.5rem; list-style: none; }
-.foot-links a { color: var(--muted); text-decoration: none; font-size: .78rem; transition: color .2s; }
-.foot-links a:hover { color: var(--cyan); }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 
-<nav>
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
   <a class="nav-logo" href="#">
-    <img src="AIXON-removebg-preview.png" alt="AIXON logo">
-    <span class="nav-brand">AIX<span>ON</span></span>
+    <img src="AIXON-removebg-preview.png" alt="AIXON">
   </a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#planes">Planes</a></li>
     <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta">Empezar</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <canvas id="particles"></canvas>
-  <div class="hero-glow"></div>
+<!-- HERO -->
+<section id="hero">
+  <canvas id="three-canvas"></canvas>
+  <div class="hero-fallback"></div>
   <div class="hero-content">
-    <div class="hero-logo-wrap">
+    <div class="hero-logo">
       <img src="AIXON-removebg-preview.png" alt="AIXON">
     </div>
     <p class="hero-tagline">Artificial Intelligence &bull; Data &bull; Analytics</p>
     <div class="hero-badge"><span class="badge-dot"></span>Agencia de IA &mdash; Buenaventura, Colombia</div>
     <h1>Tu negocio, potenciado<br>con <span class="grad">inteligencia artificial</span></h1>
-    <p class="hero-sub">Automatización, dashboards, marketing digital y talleres de IA diseñados para microempresas y pymes del Pacífico colombiano.</p>
+    <p class="hero-sub">Tecnología, marketing digital, analítica y capacitación diseñados para microempresas y pymes del Pacífico colombiano.</p>
     <div class="hero-btns">
       <a href="#servicios" class="btn-main">Ver servicios &rarr;</a>
       <a href="#proceso" class="btn-ghost">¿Cómo funciona?</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num">3x</span><span class="stat-lbl">Eficiencia operativa</span></div>
-      <div class="stat"><span class="stat-num">48h</span><span class="stat-lbl">Primer entregable</span></div>
-      <div class="stat"><span class="stat-num">100%</span><span class="stat-lbl">Enfoque local</span></div>
+      <div class="stat">
+        <span class="stat-num count-up" data-target="5" data-suffix=" pilares">0</span>
+        <span class="stat-lbl">De servicio</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num count-up" data-target="48" data-suffix="h">0</span>
+        <span class="stat-lbl">Primer entregable</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num count-up" data-target="100" data-suffix="%">0</span>
+        <span class="stat-lbl">Enfoque local</span>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- SERVICIOS -->
 <div class="section" id="servicios">
-  <p class="s-label">Servicios</p>
-  <h2 class="s-title">Todo lo que necesita<br>tu negocio para escalar</h2>
-  <p class="s-sub">Soluciones prácticas de IA adaptadas a la realidad del empresario en el Pacífico.</p>
-  <div class="srv-grid">
-    <div class="srv-card"><div class="srv-icon">🤖</div><h3>IA Aplicada</h3><p>Automatización de tareas repetitivas, chatbots de atención al cliente y flujos inteligentes para tu operación diaria.</p></div>
-    <div class="srv-card"><div class="srv-icon">📊</div><h3>Dashboards BI</h3><p>Visualización de datos en tiempo real con Power BI y Tableau. Decisiones basadas en información, no en intuición.</p></div>
-    <div class="srv-card"><div class="srv-icon">📱</div><h3>Marketing Digital</h3><p>Estrategia de contenido, gestión de redes sociales y campañas publicitarias optimizadas con herramientas de IA.</p></div>
-    <div class="srv-card"><div class="srv-icon">📈</div><h3>Analítica de Datos</h3><p>Procesamiento y análisis de tus datos de ventas, inventario y clientes para descubrir oportunidades de crecimiento.</p></div>
-    <div class="srv-card"><div class="srv-icon">🎓</div><h3>Talleres de IA</h3><p>Capacitación práctica para tu equipo: cómo usar IA en el día a día sin necesidad de conocimientos técnicos.</p></div>
-    <div class="srv-card"><div class="srv-icon">🌐</div><h3>Web y Apps</h3><p>Diseño y desarrollo de páginas web, tiendas en línea y aplicaciones a medida para tu modelo de negocio.</p></div>
+  <p class="s-label reveal">Servicios</p>
+  <h2 class="s-title reveal">5 pilares para transformar<br>tu negocio con IA</h2>
+  <p class="s-sub reveal">Sin contratos largos &middot; Sin letra peque&ntilde;a &middot; Con resultados visibles</p>
+
+  <div class="srv-list stagger">
+
+    <div class="srv-item">
+      <div class="srv-num">01</div>
+      <div class="srv-body">
+        <h3>Tecnolog&iacute;a e IA</h3>
+        <p class="srv-tagline">Tu empresa digital desde el primer d&iacute;a.</p>
+        <p>Dise&ntilde;amos y construimos todo lo que tu negocio necesita en tecnolog&iacute;a: p&aacute;gina web que genera confianza, app que gestiona citas e inventario, y asistentes de IA que trabajan 24/7.</p>
+        <ul class="srv-features">
+          <li>P&aacute;gina web profesional</li>
+          <li>App a la medida de tu empresa</li>
+          <li>Automatizaci&oacute;n de tareas repetitivas</li>
+          <li>Asistente con IA para atender clientes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="srv-item">
+      <div class="srv-num">02</div>
+      <div class="srv-body">
+        <h3>Marketing Digital</h3>
+        <p class="srv-tagline">Tu marca donde est&aacute;n tus clientes.</p>
+        <p>Gestionamos tu presencia digital de forma integral: contenido semanal para redes, reputaci&oacute;n online, estrategia de WhatsApp Business, campa&ntilde;as de pauta con IA y email marketing automatizado para convertir seguidores en clientes.</p>
+        <ul class="srv-features">
+          <li>Contenido listo para Instagram y Facebook</li>
+          <li>Gesti&oacute;n de reputaci&oacute;n y posicionamiento en Google Maps</li>
+          <li>Estrategia de WhatsApp Business y campa&ntilde;as con IA</li>
+          <li>Email marketing automatizado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="srv-item">
+      <div class="srv-num">03</div>
+      <div class="srv-body">
+        <h3>Panel de Control</h3>
+        <p class="srv-tagline">Ve todo tu negocio en una sola pantalla.</p>
+        <p>Un dashboard hecho para ti: ventas del d&iacute;a, rendimiento por empleado, inventario en tiempo real y alertas autom&aacute;ticas cuando algo necesita atenci&oacute;n.</p>
+        <ul class="srv-features">
+          <li>Ventas y caja en tiempo real</li>
+          <li>Rendimiento de cada empleado</li>
+          <li>Alertas cuando el inventario baja</li>
+          <li>Reportes autom&aacute;ticos en tu correo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="srv-item">
+      <div class="srv-num">04</div>
+      <div class="srv-body">
+        <h3>Inteligencia de Mercado</h3>
+        <p class="srv-tagline">Decide con datos, no con intuici&oacute;n.</p>
+        <p>Analizamos tu competencia, identificamos oportunidades sin explotar y te entregamos un informe ejecutivo interactivo para que tu pr&oacute;xima decisi&oacute;n de negocio sea la correcta.</p>
+        <ul class="srv-features">
+          <li>Mapa completo de tu competencia</li>
+          <li>Oportunidades que nadie est&aacute; aprovechando</li>
+          <li>Proyecci&oacute;n de ingresos con escenarios</li>
+          <li>Informe ejecutivo interactivo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="srv-item">
+      <div class="srv-num">05</div>
+      <div class="srv-body">
+        <h3>Informes y Documentaci&oacute;n</h3>
+        <p class="srv-tagline">Tus documentos listos en minutos, no en d&iacute;as.</p>
+        <p>Automatizamos informes de ejecuci&oacute;n, actas de entrega, reportes de gesti&oacute;n y documentaci&oacute;n contractual con plantillas inteligentes potenciadas con IA. Ideal para contratistas del Estado, constructores, proveedores del puerto y consultores.</p>
+        <ul class="srv-features">
+          <li>Informes de ejecuci&oacute;n para contratos del Estado</li>
+          <li>Actas de entrega y liquidaci&oacute;n de obra</li>
+          <li>Reportes de gesti&oacute;n peri&oacute;dicos con datos reales</li>
+          <li>Plantillas inteligentes reutilizables por sector</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="srv-item">
+      <div class="srv-num special">&#10022;</div>
+      <div class="srv-body">
+        <h3>Capacitaciones</h3>
+        <p class="srv-tagline">Servicio complementario</p>
+        <p>Formamos equipos empresariales e institucionales para que adopten la inteligencia artificial como herramienta de trabajo cotidiana. Talleres pr&aacute;cticos, casos reales, sin teor&iacute;a innecesaria.</p>
+        <ul class="srv-features">
+          <li>Talleres de IA para equipos de trabajo</li>
+          <li>Capacitaci&oacute;n institucional (alcald&iacute;as, hospitales, universidades)</li>
+          <li>Uso de herramientas: Claude, ChatGPT, Copilot y m&aacute;s</li>
+          <li>Modalidad presencial o virtual &middot; grupos desde 5 personas</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
+  <p class="srv-disclaimer reveal">Sin contratos largos &middot; Sin letra peque&ntilde;a &middot; Con resultados visibles</p>
 </div>
 
 <div class="divider"></div>
 
+<!-- PLANES -->
 <div class="section" id="planes">
-  <p class="s-label">Planes</p>
-  <h2 class="s-title">Elige tu punto de partida</h2>
-  <p class="s-sub">Sin contratos largos. Escala cuando tu negocio lo necesite.</p>
-  <div class="plans-grid">
+  <p class="s-label reveal">Planes de Suscripci&oacute;n</p>
+  <h2 class="s-title reveal">Elige tu punto de partida</h2>
+  <p class="s-sub reveal">Escala cuando tu negocio lo necesite. Sin permanencia forzada.</p>
+
+  <div class="plans-grid stagger">
     <div class="plan">
-      <p class="plan-tier">Básico</p>
-      <div class="plan-price">$350k <small>/ mes</small></div>
-      <p class="plan-desc">Para negocios que comienzan su transformación digital.</p>
+      <p class="plan-tier">B&Aacute;SICO</p>
+      <div class="plan-price">$200k &ndash; $400k <small>COP / mes</small></div>
+      <p class="plan-desc">1 pilar a elegir. Ideal para comenzar.</p>
       <ul class="plan-list">
-        <li>1 dashboard en Power BI</li><li>Soporte por WhatsApp</li>
-        <li>Reporte mensual de métricas</li><li>1 taller de IA introductorio</li>
+        <li>1 pilar a elegir</li>
+        <li>Entregables mensuales</li>
+        <li>Soporte por WhatsApp</li>
+        <li>Revisi&oacute;n mensual</li>
       </ul>
       <button class="plan-btn">Comenzar &rarr;</button>
     </div>
     <div class="plan best">
-      <div class="plan-badge">MÁS POPULAR</div>
-      <p class="plan-tier">Profesional</p>
-      <div class="plan-price">$850k <small>/ mes</small></div>
-      <p class="plan-desc">Para pymes que quieren automatizar y crecer con datos.</p>
+      <div class="plan-badge">MÁS POPULAR &#9733;</div>
+      <p class="plan-tier">PROFESIONAL</p>
+      <div class="plan-price">$500k &ndash; $900k <small>COP / mes</small></div>
+      <p class="plan-desc">2&ndash;3 pilares. Para pymes en crecimiento.</p>
       <ul class="plan-list">
-        <li>Dashboards ilimitados</li><li>Automatización de 3 procesos</li>
-        <li>Gestión de redes sociales</li><li>Analítica de ventas e inventario</li>
-        <li>Soporte prioritario 24/7</li><li>2 talleres de IA al mes</li>
+        <li>2&ndash;3 pilares</li>
+        <li>Entregables semanales</li>
+        <li>Soporte prioritario</li>
+        <li>Reuni&oacute;n quincenal</li>
+        <li>Dashboard b&aacute;sico</li>
       </ul>
-      <button class="plan-btn">Comenzar &rarr;</button>
+      <button class="plan-btn pulse-glow">Comenzar &rarr;</button>
     </div>
     <div class="plan">
-      <p class="plan-tier">Empresa</p>
-      <div class="plan-price">A medida</div>
-      <p class="plan-desc">Para organizaciones con necesidades complejas de datos o IA.</p>
+      <p class="plan-tier">EMPRESA</p>
+      <div class="plan-price">$1.2M &ndash; $2.5M <small>COP / mes</small></div>
+      <p class="plan-desc">5 pilares completos. Transformaci&oacute;n total.</p>
       <ul class="plan-list">
-        <li>Consultoría estratégica de IA</li><li>Integraciones personalizadas</li>
-        <li>Desarrollo de apps a medida</li><li>Equipo dedicado</li><li>SLA garantizado</li>
+        <li>5 pilares completos</li>
+        <li>Gesti&oacute;n dedicada</li>
+        <li>Soporte 24/5</li>
+        <li>Reuni&oacute;n semanal</li>
+        <li>Dashboard avanzado</li>
+        <li>Anal&iacute;tica mensual</li>
       </ul>
       <button class="plan-btn">Cotizar &rarr;</button>
     </div>
@@ -315,81 +220,123 @@ footer p { font-size: .76rem; color: var(--muted); }
 
 <div class="divider"></div>
 
+<!-- PROCESO -->
 <div class="section" id="proceso">
-  <p class="s-label">Proceso</p>
-  <h2 class="s-title">De cero a resultados<br>en 4 pasos</h2>
-  <p class="s-sub">Un proceso claro, sin tecnicismos, pensado para el empresario ocupado.</p>
-  <div class="proc-grid">
-    <div class="proc-step"><div class="proc-num">01</div><h3>Diagnóstico</h3><p>Entendemos tu negocio, procesos y dolores en una sesión de 60 minutos.</p></div>
-    <div class="proc-step"><div class="proc-num">02</div><h3>Propuesta</h3><p>Plan de acción concreto con herramientas, tiempos y costos claros.</p></div>
-    <div class="proc-step"><div class="proc-num">03</div><h3>Implementación</h3><p>Ejecutamos. Primer entregable visible en menos de 48 horas.</p></div>
-    <div class="proc-step"><div class="proc-num">04</div><h3>Acompañamiento</h3><p>Seguimiento continuo y capacitación para que tu equipo sea autónomo.</p></div>
+  <p class="s-label reveal">Proceso</p>
+  <h2 class="s-title reveal">De cero a resultados<br>en 4 pasos</h2>
+  <p class="s-sub reveal">Un proceso claro, sin tecnicismos, pensado para el empresario ocupado.</p>
+  <div class="proc-grid stagger">
+    <div class="proc-step">
+      <div class="proc-num">01</div>
+      <h3>Diagn&oacute;stico</h3>
+      <p>Entendemos tu negocio, procesos y dolores en una sesi&oacute;n de 60 minutos.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">02</div>
+      <h3>Propuesta</h3>
+      <p>Plan de acci&oacute;n concreto con herramientas, tiempos y costos claros.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">03</div>
+      <h3>Implementaci&oacute;n</h3>
+      <p>Ejecutamos. Primer entregable visible en menos de 48 horas.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">04</div>
+      <h3>Acompa&ntilde;amiento</h3>
+      <p>Seguimiento continuo y capacitaci&oacute;n para que tu equipo sea aut&oacute;nomo.</p>
+    </div>
   </div>
 </div>
 
-<div class="cta-wrap" id="contacto">
-  <div class="cta-glow"></div>
-  <div class="divider" style="margin-bottom:4rem"></div>
-  <h2>¿Listo para llevar tu negocio<br>al siguiente nivel?</h2>
-  <p>Agenda una sesión gratuita de diagnóstico. Sin compromisos.</p>
-  <a href="mailto:contacto@aixon.co" class="btn-main">Agendar sesión gratuita &rarr;</a>
+<div class="divider"></div>
+
+<!-- FAQ -->
+<div class="section" id="faq">
+  <p class="s-label reveal">Preguntas frecuentes</p>
+  <h2 class="s-title reveal">Todo lo que necesitas saber</h2>
+
+  <div class="faq-list reveal">
+
+    <div class="faq-item">
+      <button class="faq-q">
+        &iquest;Necesito conocimientos t&eacute;cnicos para trabajar con AIXON?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>No. Nos encargamos de toda la parte t&eacute;cnica. T&uacute; solo nos dices qu&eacute; necesitas y c&oacute;mo funciona tu negocio. Nosotros traducimos eso en soluciones que puedes usar desde el primer d&iacute;a.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        &iquest;Cu&aacute;nto tiempo tarda en verse un resultado?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>El primer entregable llega en menos de 48 horas desde que iniciamos. Resultados concretos como aumento de consultas o ahorro de tiempo suelen notarse en las primeras 2&ndash;4 semanas.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        &iquest;Puedo cambiar de plan o cancelar?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>S&iacute;. Sin contratos de permanencia. Puedes escalar, bajar o pausar tu plan con 15 d&iacute;as de aviso. Nuestro compromiso es que te quedes porque los resultados lo valen, no porque est&aacute;s atrapado.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        &iquest;Trabajan solo con empresas de Buenaventura?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Tenemos foco en Buenaventura y el Pac&iacute;fico colombiano, pero trabajamos con cualquier empresa del pa&iacute;s de forma virtual. Los servicios de capacitaci&oacute;n tambi&eacute;n los ofrecemos en modalidad presencial en la regi&oacute;n.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        &iquest;Qu&eacute; pasa con mis datos y los de mis clientes?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Tus datos son tuyos. Trabajamos bajo acuerdos de confidencialidad y no compartimos informaci&oacute;n con terceros. Todas las herramientas que implementamos cumplen est&aacute;ndares de seguridad de la industria.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        &iquest;Los servicios de documentaci&oacute;n aplican para contratos con el Estado?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>S&iacute;, especialmente. Automatizamos informes de ejecuci&oacute;n, actas de entrega y reportes de gesti&oacute;n para contratistas del Estado, constructores y proveedores del puerto que hoy redactan todo a mano en Word.</p></div>
+    </div>
+
+  </div>
 </div>
 
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<div class="cta-wrap" id="contacto">
+  <div class="cta-glow"></div>
+  <h2 class="reveal">&iquest;Listo para llevar tu negocio<br>al siguiente nivel?</h2>
+  <p class="reveal">Agenda una sesi&oacute;n gratuita de diagn&oacute;stico. Sin compromisos.</p>
+  <a href="mailto:contacto@aixon.co" class="btn-main pulse-glow">Agendar sesi&oacute;n gratuita &rarr;</a>
+</div>
+
+<!-- FOOTER -->
 <footer>
   <div class="foot-logo">
     <img src="AIXON-removebg-preview.png" alt="AIXON">
-    <span class="foot-brand">AIX<span>ON</span></span>
   </div>
   <p>Agencia de IA &middot; Buenaventura, Colombia &middot; 2025</p>
   <ul class="foot-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#planes">Planes</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
 </footer>
 
-<script>
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let W, H, pts = [];
-function resize() {
-  W = canvas.width = canvas.offsetWidth;
-  H = canvas.height = canvas.offsetHeight;
-}
-function init() {
-  pts = [];
-  const n = Math.floor(W * H / 16000);
-  for (let i = 0; i < n; i++) {
-    pts.push({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
-      r: Math.random() * 1.4 + .4, a: Math.random() * .5 + .2
-    });
-  }
-}
-function draw() {
-  ctx.clearRect(0, 0, W, H);
-  for (let i = 0; i < pts.length; i++) {
-    const p = pts[i];
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0 || p.x > W) p.vx *= -1;
-    if (p.y < 0 || p.y > H) p.vy *= -1;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(0,212,255,' + (p.a * .45) + ')';
-    ctx.fill();
-    for (let j = i + 1; j < pts.length; j++) {
-      const q = pts[j], d = Math.hypot(p.x - q.x, p.y - q.y);
-      if (d < 95) {
-        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = 'rgba(27,110,243,' + ((1 - d / 95) * .13) + ')';
-        ctx.lineWidth = .5; ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(draw);
-}
-resize(); init(); draw();
-window.addEventListener('resize', () => { resize(); init(); });
-</script>
+<!-- THREE.JS r128 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>window.dispatchEvent(new Event('three-ready'));</script>
+<script src="js/scene.js"></script>
+<script src="js/interactions.js"></script>
 </body>
 </html>

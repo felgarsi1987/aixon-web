@@ -1,0 +1,59 @@
+{
+  "name": "AIXON — Artificial Intelligence · Data · Analytics",
+  "short_name": "AIXON",
+  "description": "Agencia de IA para microempresas y pymes del Pacífico colombiano.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020B1E",
+  "theme_color": "#020B1E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "isotipo/AIXON_isotipo_32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "isotipo/AIXON_isotipo_48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "isotipo/AIXON_isotipo_64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "isotipo/AIXON_isotipo_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "isotipo/AIXON_isotipo_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "isotipo/AIXON_isotipo_256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "isotipo/AIXON_isotipo_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon/pwa_icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/pwa_icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
